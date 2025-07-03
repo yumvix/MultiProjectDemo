@@ -44,11 +44,11 @@ int main() {
 	}
 	card[15] = 0;
 	vector<int> seg;
-	for (int i = 3; i < 15; i++)
+	for (int index = 3; index < 15; index++)
 	{
-		if(card[i] > 0)
+		if(card[index] > 0)
 		{
-			seg.emplace_back(card[i]);
+			seg.emplace_back(card[index]);
 		}
 		else
 		{
@@ -69,32 +69,32 @@ int main() {
 					}
 					else
 					{
-						for (int k = 0;k < rst.size(); k++)
+						for (int k = i;k <= j; k++)
 						{
-							if (rst[i] == 14)
+							if (rst[k] == 14)
 							{
 								cout << "A" ;
 							}
-							else if (rst[i] == 15)
+							else if (rst[k] == 15)
 							{
 								cout << "Error";
 									return 0;
 							}
-							else if (rst[i] == 11)
+							else if (rst[k] == 11)
 							{
 								cout << "J" ;
 							}
-							else if (rst[i] == 12)
+							else if (rst[k] == 12)
 							{
 								cout << "Q";
 							}
-							else if (rst[i] == 13)
+							else if (rst[k] == 13)
 							{
 								cout << "K";
 							}
 							else
 							{
-								cout << rst[i] << " ";
+								cout << rst[k] << " ";
 							}
 
 							if (k == rst.size()-1)
