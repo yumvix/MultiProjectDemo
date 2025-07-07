@@ -42,73 +42,61 @@ int main() {
 		}
 		cards[value]++;
 	}
-	card[15] = 0;
+	cards[15] = 0;
 	vector<int> seg;
 	for (int index = 3; index < 15; index++)
 	{
-		if(card[index] > 0)
+		if(cards[index] > 0)
 		{
-			seg.emplace_back(card[index]);
-		}
-		else
-		{
-			vector<int> rst;
+			seg.emplace_back(index);
 			if (seg.size() < 5)
 			{
 				continue;
 			}
 
-			for (int i = 0; i +4 < seg.size(); i++)
+			for (int i = 0; i + 4 < seg.size(); i++)
 			{
-				for (int j = i; j< seg.size(); j++)
+				for (int j = i; j < seg.size(); j++)
 				{
-					rst.emplace_back(seg[j]);
-					if (j - i < 4)
+					if (seg[j] == 14)
 					{
-						continue;
+						cout << "A";
+					}
+					else if (seg[j] == 15)
+					{
+						cout << "Error";
+						return 0;
+					}
+					else if (seg[j] == 11)
+					{
+						cout << "J";
+					}
+					else if (seg[j] == 12)
+					{
+						cout << "Q";
+					}
+					else if (seg[j] == 13)
+					{
+						cout << "K";
 					}
 					else
 					{
-						for (int k = i;k <= j; k++)
-						{
-							if (rst[k] == 14)
-							{
-								cout << "A" ;
-							}
-							else if (rst[k] == 15)
-							{
-								cout << "Error";
-									return 0;
-							}
-							else if (rst[k] == 11)
-							{
-								cout << "J" ;
-							}
-							else if (rst[k] == 12)
-							{
-								cout << "Q";
-							}
-							else if (rst[k] == 13)
-							{
-								cout << "K";
-							}
-							else
-							{
-								cout << rst[k] << " ";
-							}
+						cout << seg[j] << " ";
+					}
 
-							if (k == rst.size()-1)
-							{
-								cout << endl;
-							}
-							else
-							{
-								cout << " ";
-							}
-						}
+					if (j == seg.size() - 1)
+					{
+						cout << endl;
+					}
+					else
+					{
+						cout << " ";
 					}
 				}
 			}
+		}
+		else
+		{
 			seg.clear();
 		}
 	}
