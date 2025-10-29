@@ -1,18 +1,18 @@
-#include "ReadFileByLines.h" // ÓÃÓÚ°´¿Õ¸ñ/¶ººÅ·Ö¸îÄÚÈİ
+#include "ReadFileByLines.h" // ç”¨äºæŒ‰ç©ºæ ¼/é€—å·åˆ†å‰²å†…å®¹
 
 
-// ·½·¨1£º°´ĞĞ¶ÁÈ¡ÎÄ¼ş£¬Ã¿ĞĞ×÷ÎªÊı×éµÄÒ»¸öÔªËØ
+// æ–¹æ³•1ï¼šæŒ‰è¡Œè¯»å–æ–‡ä»¶ï¼Œæ¯è¡Œä½œä¸ºæ•°ç»„çš„ä¸€ä¸ªå…ƒç´ 
 std::vector<std::string> readFileByLines(const std::string& filePath) {
     std::vector<std::string> lines;
     std::ifstream file(filePath);
     if (!file.is_open()) {
         std::cerr << "Error: Could not open file " << filePath << std::endl;
-        return lines; // ·µ»Ø¿ÕÊı×é
+        return lines; // è¿”å›ç©ºæ•°ç»„
     }
 
     std::string line;
     while (std::getline(file, line)) {
-        if (!line.empty()) { // ºöÂÔ¿ÕĞĞ
+        if (!line.empty()) { // å¿½ç•¥ç©ºè¡Œ
             lines.push_back(line);
         }
     }
@@ -20,7 +20,7 @@ std::vector<std::string> readFileByLines(const std::string& filePath) {
     return lines;
 }
 
-// ·½·¨2£º°´¿Õ¸ñ/¶ººÅµÈ·Ö¸ô·û·Ö¸îÎÄ¼şÄÚÈİ
+// æ–¹æ³•2ï¼šæŒ‰ç©ºæ ¼/é€—å·ç­‰åˆ†éš”ç¬¦åˆ†å‰²æ–‡ä»¶å†…å®¹
 std::vector<std::string> readFileByTokens(const std::string& filePath) {
     std::vector<std::string> tokens;
     std::ifstream file(filePath);
@@ -33,7 +33,7 @@ std::vector<std::string> readFileByTokens(const std::string& filePath) {
     while (std::getline(file, line)) {
         std::istringstream iss(line);
         std::string token;
-        while (iss >> token) { // Ä¬ÈÏ°´¿Õ¸ñ·Ö¸î£¬¿ÉÌæ»»Îª¶ººÅ·Ö¸î
+        while (iss >> token) { // é»˜è®¤æŒ‰ç©ºæ ¼åˆ†å‰²ï¼Œå¯æ›¿æ¢ä¸ºé€—å·åˆ†å‰²
             tokens.push_back(token);
         }
     }
