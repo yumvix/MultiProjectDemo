@@ -1,4 +1,4 @@
-#include <iostream>
+﻿#include <iostream>
 #include <sstream>
 #include <string>
 #include <vector>
@@ -110,7 +110,7 @@ void MatchFinal(const vector<Candidate>& input, int& first, int& second, int& th
 	}
 
 }
-// ����2�����ո�/���ŵȷָ����ָ��ļ�����
+// ·½·¨2£º°´¿Õ¸ñ/¶ººÅµÈ·Ö¸ô·û·Ö¸îÎÄ¼þÄÚÈÝ
 std::vector<Candidate> readFileByTokens(const std::string& filePath) {
 	std::vector<Candidate> tokens;
 	std::ifstream file(filePath);
@@ -124,7 +124,7 @@ std::vector<Candidate> readFileByTokens(const std::string& filePath) {
 		std::istringstream iss(line);
 		int token;
 		int index = 0;
-		while (iss >> token) { // Ĭ�ϰ��ո�ָ���滻Ϊ���ŷָ�
+		while (iss >> token) { // Ä¬ÈÏ°´¿Õ¸ñ·Ö¸î£¬¿ÉÌæ»»Îª¶ººÅ·Ö¸î
 			Candidate c;
 			c.strength = token;
 			c.index = index;
@@ -142,3 +142,70 @@ int main()
 	MatchFinal(input, first, second, third);
 	cout << first << " " << second << " " << third;
 }
+
+
+// 给的答案是错的 https://blog.csdn.net/guorui_java/article/details/145382325
+//#include <iostream>
+//#include <vector>
+//
+//class Sportsman {
+//public:
+//	int id;
+//	long strength;
+//	Sportsman(int id, long strength) : id(id), strength(strength) {}
+//};
+
+
+
+//void promotionCompetition(std::vector<Sportsman>& sportsmanList, std::vector<std::vector<Sportsman>>& trophyList) {
+//	std::vector<Sportsman> winList;
+//	std::vector<Sportsman> failList;
+//
+//	for (size_t i = 0; i < sportsmanList.size(); i += 2) {
+//		if (i == sportsmanList.size() - 1) {
+//			winList.push_back(sportsmanList[i]);
+//			continue;
+//		}
+//		Sportsman current = sportsmanList[i];
+//		Sportsman next = sportsmanList[i + 1];
+//
+//		if (next.strength > current.strength) {
+//			winList.push_back(next);
+//			failList.push_back(current);
+//		}
+//		else if (next.strength < current.strength) {
+//			winList.push_back(current);
+//			failList.push_back(next);
+//		}
+//		else {
+//			winList.push_back(current);
+//			failList.push_back(next);
+//		}
+//	}
+//
+//	trophyList.push_back(failList);
+//	trophyList.push_back(winList);
+//}
+//
+//int main() {
+//	int N;
+//	std::cin >> N;
+//	std::vector<Sportsman> sportsmanList;
+//	for (int i = 0; i < N; i++) {
+//		long strength;
+//		std::cin >> strength;
+//		sportsmanList.push_back(Sportsman(i, strength));
+//	}
+//
+//	std::vector<std::vector<Sportsman>> trophyList;
+//	promotionCompetition(sportsmanList, trophyList);
+//
+//	while (trophyList.back().size() > 1) {
+//		promotionCompetition(trophyList[0], trophyList);
+//	}
+//
+//	std::cout << trophyList[0][0].id << " " << trophyList[1][0].id << " " << trophyList[2][0].id << std::endl;
+//
+//	return 0;
+//}
+//
