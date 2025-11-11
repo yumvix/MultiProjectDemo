@@ -265,43 +265,14 @@ int main()
 		}
 		if (c == 0)
 		{
-			if (teams.find(a) != teams.end())
-			{
-				set<int> teamates = teams[a];
-				for (const auto& mem : teamates)
-				{
-					teams[mem].insert(b);
-				}
-				teams[a].insert(b);
-				teams.insert(make_pair(b, teamates));
-				teams[b].insert(a);
-			}
-			else if (teams.find(b) != teams.end())
-			{
-				set<int> teamates = teams[b];
-				for (const auto& mem : teamates)
-				{
-					teams[mem].insert(a);
-				}
-				teams[b].insert(a);
-				teams.insert(make_pair(b, teamates));
-				teams[a].insert(b);
-			}
-			else
-			{
-				teams.insert(make_pair(b, set{ a }));
-				teams.insert(make_pair(a, set{ b }));
-			}
+			dsu.unit(a, b);
 		}
 		if (c == 1)
 		{
-			if (teams.find(a) != teams.end())
+			if (dsu.find(b) == dsu.find(a))
 			{
-				if (teams[a].find(b) != teams[a].end())
-				{
-					cout << "we are a team" << endl;
-					continue;
-				}
+				cout << "we are a team" << endl;
+				continue;
 			}
 			cout << "we are not a team" << endl;
 		}
